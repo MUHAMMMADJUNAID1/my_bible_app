@@ -575,6 +575,7 @@ class _SelectionOfVerseState extends State<SelectionOfVerse> {
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black,
                         fontFamily: 'Playfair Display',
                       ),
                     ),

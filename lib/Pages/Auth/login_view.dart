@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_bibile_app/Pages/Dashboard/dashboard_view.dart';
+import 'package:my_bibile_app/Pages/NotLogin/notLoginFirstTimeUser_view.dart';
 
 import '../../common/customLoginButton.dart';
 
@@ -16,7 +17,7 @@ class LoginView extends StatelessWidget {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return const DashboardView();
+                return const FirstTimeUserView();
               },
             ));
           },

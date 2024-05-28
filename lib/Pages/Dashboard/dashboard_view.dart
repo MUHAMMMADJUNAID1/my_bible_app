@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_bibile_app/Pages/BibleDetail/bibleDetial_view.dart';
+import 'package:my_bibile_app/Pages/setting/setting_view.dart';
 import 'package:my_bibile_app/common/customFont1.dart';
 
 class DashboardView extends StatefulWidget {
@@ -45,16 +47,17 @@ class _DashboardViewState extends State<DashboardView> {
           ],
         ),
         actions: [
-          InkWell(
-            borderRadius: BorderRadius.circular(50),
-            onTap: () {},
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return  SettingView();
+                },
+              ));
+            },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.search,
-                color: Colors.black,
-                size: 24.h,
-              ),
+              child: Image.asset("assets/img/setting.png", scale: 4.sp,),
             ),
           ),
           SizedBox(
@@ -80,7 +83,7 @@ class _DashboardViewState extends State<DashboardView> {
                 height: 20.h,
               ),
               SizedBox(
-                height: 240.h,
+                height: 245.h,
                 child: ListView.separated(
                   physics: const AlwaysScrollableScrollPhysics(),
                   itemCount: 5,
@@ -163,111 +166,112 @@ class _DashboardViewState extends State<DashboardView> {
               SizedBox(
                 height: 15.h,
               ),
-              ListView.separated(
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.only(
-                    right: 20,
-                  ),
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return BibleDetail();
-                          },
-                        ));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Image.asset(
-                                'assets/img/bibleimg.png',
-                                width: 72.w,
-                                height: 106.h,
-                              ),
-                              SizedBox(
-                                width: 25.w,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomFont1(
-                                    text: 'Bengali',
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  CustomFont1(
-                                    text: 'Bengali O.V. Bible',
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                    fontColor: const Color(0xffBABBC2),
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  Container(
-                                    width: 72.w,
-                                    height: 24.h,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      border: Border.all(
-                                        color: const Color(0xffBABBC2),
+              SizedBox(
+                height: 310.h,
+                child: ListView.separated(
+                  // physics: NeverScrollableScrollPhysics(),
+                  itemCount: 5,
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.only(right: 20,),
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return BibleDetail();
+                            },
+                          ));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/img/bibleimg.png',
+                                  width: 72.w,
+                                  height: 106.h,
+                                ),
+                                SizedBox(
+                                  width: 25.w,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CustomFont1(
+                                      text: 'Bengali',
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    CustomFont1(
+                                      text: 'Bengali O.V. Bible',
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w400,
+                                      fontColor: const Color(0xffBABBC2),
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    Container(
+                                      width: 72.w,
+                                      height: 24.h,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                          color: const Color(0xffBABBC2),
+                                        ),
                                       ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          SizedBox(
+                                            width: 3.w,
+                                          ),
+                                          SvgPicture.asset(
+                                            'assets/img/page.svg',
+                                            width: 17.w,
+                                            height: 13.h,
+                                          ),
+                                          CustomFont1(
+                                            text: '535K ',
+                                            fontSize: 12.sp,
+                                            fontColor: const Color(0xffBABBC2),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: index / 2 == 1
+                                  ? SvgPicture.asset(
+                                      'assets/img/downIcon.svg',
+                                      width: 19.w,
+                                      height: 20.h,
+                                    )
+                                  : SvgPicture.asset(
+                                      'assets/img/succIcon.svg',
+                                      width: 19.w,
+                                      height: 20.h,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        SizedBox(
-                                          width: 3.w,
-                                        ),
-                                        SvgPicture.asset(
-                                          'assets/img/page.svg',
-                                          width: 17.w,
-                                          height: 13.h,
-                                        ),
-                                        CustomFont1(
-                                          text: '535K ',
-                                          fontSize: 12.sp,
-                                          fontColor: const Color(0xffBABBC2),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10.0),
-                            child: index / 2 == 1
-                                ? SvgPicture.asset(
-                                    'assets/img/downIcon.svg',
-                                    width: 19.w,
-                                    height: 20.h,
-                                  )
-                                : SvgPicture.asset(
-                                    'assets/img/succIcon.svg',
-                                    width: 19.w,
-                                    height: 20.h,
-                                  ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                        height: 10.h,
-                      ),
-                  itemCount: 3),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  separatorBuilder: (context, index) => SizedBox(height: 10.h),
+                ),
+              ),
             ],
           ),
         ),

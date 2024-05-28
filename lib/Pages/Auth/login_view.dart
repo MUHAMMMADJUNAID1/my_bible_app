@@ -12,11 +12,20 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: SvgPicture.asset(
-          'assets/img/cancel.svg',
-          width: 20.w,
-          height: 20.h,
-          color: Colors.black,
+        title: GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return const DashboardView();
+              },
+            ));
+          },
+          child: SvgPicture.asset(
+            'assets/img/cancel.svg',
+            width: 18.w,
+            height: 18.h,
+            color: Colors.black,
+          ),
         ),
       ),
       body: Padding(

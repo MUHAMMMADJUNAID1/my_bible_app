@@ -14,20 +14,31 @@ class PickerView extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Isaiah 51',
-            style: TextStyle(
-              fontSize: 22.sp,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
               color: Colors.black,
-              fontWeight: FontWeight.w400,
-              fontFamily: "Inter",
+              size: 18.sp,
+            ),
+          ),
+          title: const TextField(
+            cursorColor: Colors.black,
+            style: TextStyle(color: Colors.black),
+            decoration: InputDecoration(
+              hintText: "Search",
+              hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300),
+              border: InputBorder.none, // Remove TextField border
+              contentPadding: EdgeInsets.zero, // Remove default padding
             ),
           ),
           actions: [
             IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.search,
+                Icons.search_sharp,
                 color: Colors.black,
                 size: 30.sp,
               ),
@@ -104,7 +115,7 @@ class PickerView extends StatelessWidget {
                           'Genesis',
                           style: TextStyle(
                             fontSize: 18.sp,
-                            fontWeight: FontWeight.normal,
+                            fontWeight: FontWeight.w400,
                             color: Colors.black,
                             fontFamily: "Inter",
                           ),

@@ -1,8 +1,9 @@
-import 'package:device_preview/device_preview.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_bibile_app/Picker/pickerView.dart';
+import 'package:my_bibile_app/Pages/SelectionOFVerse/selectionOfVerse.dart';
+import 'package:my_bibile_app/common/customFont1.dart';
 
 import '../../common/customFont1.dart';
 
@@ -15,6 +16,16 @@ class BibleDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         forceMaterialTransparency: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.black,
+            size: 17.sp,
+          ),
+        ),
         elevation: 0,
         actions: [
           IconButton(
@@ -32,13 +43,16 @@ class BibleDetail extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 52.h,
+              ),
               Image.asset(
                 'assets/img/bibleimg.png',
                 width: 216.w,
                 height: 320.h,
               ),
               SizedBox(
-                height: 20.h,
+                height: 30.h,
               ),
               CustomFont1(
                 text: 'Malayalam Bible',
@@ -46,7 +60,7 @@ class BibleDetail extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
               SizedBox(
-                height: 10.h,
+                height: 15.h,
               ),
               Text(
                 'Bible Society of India',
@@ -58,57 +72,68 @@ class BibleDetail extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20.h,
-              ),
-              Container(
-                width: 115.w,
-                height: 24.h,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  border: Border.all(
-                    color: const Color(0xffBABBC2),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    SvgPicture.asset(
-                      'assets/img/page.svg',
-                      width: 17.w,
-                      height: 13.h,
-                    ),
-                    CustomFont1(
-                      text: '535K readers ',
-                      fontSize: 12.sp,
-                      fontColor: const Color(0xffBABBC2),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
                 height: 15.h,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    // width: 115.w,
+                    // height: 24.h,
+                    padding: EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        color: const Color(0xffBABBC2),
+                      ),
+                    ),
+                    child: Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/img/page.svg',
+                          width: 17.w,
+                          height: 13.h,
+                        ),
+                        SizedBox(
+                          width: 7.w,
+                        ),
+                        CustomFont1(
+                          text: '535K readers ',
+                          fontSize: 12.sp,
+                          fontColor: const Color(0xffBABBC2),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 9.h,
+              ),
               Text(
-                '\nThe Bible Society of India invites the church and \neveryone to join hands in partnership, as we \ncan make this great mission possible through \nyour priceless collaboration and contributions.\nGod’s Word for the God’s World – is made a \nreality by the Bible Society of India.',
+                'The Bible Society of India invites the church and everyone '
+                'to join hands in partnership, as we can make this '
+                'great mission possible through your priceless '
+                'collaboration and contributions.God’s Word for'
+                ' the God’s World – is made a reality by the Bible'
+                ' Society of India.',
                 style: TextStyle(
                   fontSize: 14.sp,
                   color: Colors.black,
                   fontFamily: "Inter",
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(
-                height: 50.h,
+                height: 33.h,
               ),
               InkWell(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return PickerView();
+                      return SelectionOfVerse();
                     },
                   ));
                 },

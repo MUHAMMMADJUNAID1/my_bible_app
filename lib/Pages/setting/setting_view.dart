@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_bibile_app/Pages/Dashboard/dashboard_view.dart';
 import 'package:my_bibile_app/common/customFont1.dart';
 
 class SettingView extends StatelessWidget {
@@ -31,7 +32,15 @@ class SettingView extends StatelessWidget {
             itemBuilder: (context, index) {
               var setObj = setting[index] as Map;
               return ListTile(
-                onTap: () {},
+                onTap: () {
+                  index == 2
+                      ? Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return DashboardView();
+                    },
+                  ))
+                      : SizedBox();
+                },
                 enableFeedback: false,
                 leading: SvgPicture.asset(
                   "${setObj['img']}",

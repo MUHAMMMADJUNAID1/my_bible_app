@@ -1,19 +1,15 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_bibile_app/Pages/BibleDetail/bibleDetial_view.dart';
-import 'package:my_bibile_app/Pages/Dashboard/dashboard_view.dart';
-import 'package:my_bibile_app/Pages/SelectionOFVerse/selectionOfVerse.dart';
-import 'package:my_bibile_app/Pages/setting/setting_view.dart';
-import 'package:my_bibile_app/Picker/pickerView.dart';
+import 'package:my_bibile_app/Pages/Auth/login_view.dart';
 
-import 'Pages/Auth/login_view.dart';
 
 void main() => runApp(
-      // DevicePreview(
-      //  enabled: !kReleaseMode,
-      //  builder: (context) =>
-      const MyApp(), // Wrap your app
-      //  ),
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => const MyApp(), // Wrap your app
+      ),
     );
 
 class MyApp extends StatelessWidget {
